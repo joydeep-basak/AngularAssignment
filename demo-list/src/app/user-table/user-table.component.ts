@@ -14,4 +14,8 @@ export class UserTableComponent {
   constructor() {
     
   }
+
+  delete(id:number) {
+    alert(id);
+  }
 }

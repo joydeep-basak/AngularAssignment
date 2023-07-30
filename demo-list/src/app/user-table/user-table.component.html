@@ -22,8 +22,10 @@
         <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.pincode}}</td>
         <td *ngIf="i % 2 == 1" >{{user.pincode}}</td>
         <td *ngIf="i % 2 == 0" style="background-color: lightblue;">
-            <button type="button" class="btn btn-primary"><span class="bi bi-trash"></span> Sample Button</button></td>
-        <td *ngIf="i % 2 == 1" > <button type="button" class="btn btn-primary"><span class="bi bi-trash"></span> Sample Button</button></td>
+            <button type="button" class="btn btn-primary" (click)="delete(user.userid)">
+                <span class="bi bi-trash"></span> Sample Button</button></td>
+        <td *ngIf="i % 2 == 1" > <button type="button" class="btn btn-primary"  (click)="delete(user.userid)">
+            <span class="bi bi-trash"></span> Sample Button</button></td>
       </tr>
     </tbody>
   </table>
