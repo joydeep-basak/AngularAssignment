@@ -10,12 +10,22 @@ export class UserTableComponent {
 
   @Input()
   users!: User[];
+  user! : User
+  show! : boolean
+  get() {
 
+  }
   constructor() {
     
   }
 
   delete(id:number) {
     alert(id);
+  }
+
+  select(id:number) {
+    this.user = this.users[id];
+    this.show = true;
+    alert(this.user + '|' + this.show);
   }
 }

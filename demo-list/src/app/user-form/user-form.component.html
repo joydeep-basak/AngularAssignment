@@ -1,0 +1,35 @@
+<form style="border-style: outset;border-radius: 25px;padding: 10px;" *ngIf="show">
+    <div class="form-group row">
+      <label for="userid" class="col-sm-2 col-form-label">User Id</label>
+      <div class="col-sm-10">
+        <input type="text" disabled class="form-control-plaintext" id="userid" placeholder="Selected ID" [readOnly]="true">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="username" class="col-sm-2 col-form-label">User Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" placeholder="User Name">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="address" placeholder="Address">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="pincode" class="col-sm-2 col-form-label">Pin Code</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="pincode" placeholder="Pin">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+            <button type="submit" class="col-sm-2 btn btn-primary mb-2" (click)="save()">Save</button>
+          </div>
+        <div class="col-sm-6">
+            <button type="submit" class="col-sm-2 btn btn-primary mb-2" (click)="hideForm()">Cancel</button>
+        </div>
+      </div>
+      
+  </form>

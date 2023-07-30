@@ -1,31 +1,38 @@
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Sl No</th>
-        <th scope="col">User ID</th>
-        <th scope="col">User Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Pin Code</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users;let i = index" style="background-color: lightblue;">
-        <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{(i+1)}}</td>
-        <td *ngIf="i % 2 == 1">{{(i+1)}}</td>
-        <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.userid}}</td>
-        <td *ngIf="i % 2 == 1">{{user.userid}}</td>
-        <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.username}}</td>
-        <td *ngIf="i % 2 == 1" >{{user.username}}</td>
-        <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.address}}</td>
-        <td *ngIf="i % 2 == 1" >{{user.address}}</td>
-        <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.pincode}}</td>
-        <td *ngIf="i % 2 == 1" >{{user.pincode}}</td>
-        <td *ngIf="i % 2 == 0" style="background-color: lightblue;">
-            <button type="button" class="btn btn-primary" (click)="delete(user.userid)">
-                <span class="bi bi-trash"></span> Sample Button</button></td>
-        <td *ngIf="i % 2 == 1" > <button type="button" class="btn btn-primary"  (click)="delete(user.userid)">
-            <span class="bi bi-trash"></span> Sample Button</button></td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Sl No</th>
+      <th scope="col">User ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Pin Code</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users;let i = index" style="background-color: lightblue;">
+      <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{(i+1)}}</td>
+      <td *ngIf="i % 2 == 1">{{(i+1)}}</td>
+      <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.userid}}</td>
+      <td *ngIf="i % 2 == 1">{{user.userid}}</td>
+      <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.username}}</td>
+      <td *ngIf="i % 2 == 1">{{user.username}}</td>
+      <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.address}}</td>
+      <td *ngIf="i % 2 == 1">{{user.address}}</td>
+      <td *ngIf="i % 2 == 0" style="background-color: lightblue;">{{user.pincode}}</td>
+      <td *ngIf="i % 2 == 1">{{user.pincode}}</td>
+      <td *ngIf="i % 2 == 0" style="background-color: lightblue;">
+        <button type="button" class="btn btn-primary ms-1" (click)="select(user.userid)">
+          <span class="bi bi-trash"></span> Select</button>
+        <button type="button" class="btn btn-primary ms-1" (click)="delete(user.userid)">
+          <span class="bi bi-trash"></span> Delete</button>
+      </td>
+      <td *ngIf="i % 2 == 1">
+        <button type="button" class="btn btn-primary ms-1" (click)="select(user.userid)">
+          <span class="bi bi-trash"></span> Select</button>
+        <button type="button" class="btn btn-primary ms-1" (click)="delete(user.userid)">
+          <span class="bi bi-trash"></span> Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
