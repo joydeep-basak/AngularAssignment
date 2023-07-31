@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../user-component/user-model';
 
 @Component({
@@ -8,22 +8,29 @@ import { User } from '../user-component/user-model';
 })
 export class UserFormComponent {
 
-  
 
-  @Input()
-  user!: User;
-  @Input()
-  show! :boolean;
+  @Input()  user!: User;
+  @Input()  show! :boolean;
+  @Input() newuser! : boolean;
+
+  @Output() newUserEvent = new EventEmitter();
+  @Output() updateUserEvent = new EventEmitter();
+
   constructor () {
-      this.show = true;
   }
 
   save() {
-
+    if (this.newuser) {
+      alert('new user')
+      this.newUserEvent.emit(this.user)
+    } else {
+      this.updateUserEvent.emit(this.user);
+      alert('update user')
+    }
+    this.show = false;
   }
 
   hideForm() {
-    alert(this.show)
     this.show = false;
   }
 }

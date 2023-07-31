@@ -36,3 +36,5 @@
     </tr>
   </tbody>
 </table>
+<button class="btn btn-primary" (click)="addNew()">New</button>
+<app-user-form [user]="user" [show]="show" [newuser]="newuser" (newUserEvent)="addNewUser" (updateUserEvent)="updateUser"></app-user-form>

@@ -8,24 +8,48 @@ import { User } from '../user-component/user-model';
 })
 export class UserTableComponent {
 
-  @Input()
-  users!: User[];
-  user! : User
-  show! : boolean
-  get() {
-
-  }
+  @Input()  users!: User[];
+   user! : User
+   show! : boolean
+   newuser! : boolean
+  
   constructor() {
     
   }
 
   delete(id:number) {
-    alert(id);
+    this.users.splice(id, 1);
   }
 
-  select(id:number) {
-    this.user = this.users[id];
+  addNew() {
     this.show = true;
-    alert(this.user + '|' + this.show);
+    this.user = {
+      userid:0,
+      username: "",
+      address:"",
+      pincode: ""
+    }
+    this.newuser = true;
+    this.show = true;
+  }
+
+  addNewUser(user: User) {
+    this.users.push(user)
+    alert(this.users.length)
+  }
+
+  updateUser(user: User) {
+    for(var i = 0; i < this.users.length; i++) {
+        if (this.users[i].userid == user.userid) {
+          this.users[i] = user;
+        }
+    }
+   }
+  
+
+  select(id:number) {
+    this.user = this.users[id -1];
+    this.show = true;
+    this.newuser = false;
   }
 }
