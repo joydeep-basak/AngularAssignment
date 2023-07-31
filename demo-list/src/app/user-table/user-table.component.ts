@@ -34,11 +34,13 @@ export class UserTableComponent {
   }
 
   addNewUser(user: User) {
+    console.log(user)
     this.users.push(user)
     alert(this.users.length)
   }
 
   updateUser(user: User) {
+    alert('Event Emit called update')
     for(var i = 0; i < this.users.length; i++) {
         if (this.users[i].userid == user.userid) {
           this.users[i] = user;

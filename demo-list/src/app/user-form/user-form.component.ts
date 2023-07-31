@@ -20,12 +20,13 @@ export class UserFormComponent {
   }
 
   save() {
+    alert('save | ' + this.newuser)
     if (this.newuser) {
-      alert('new user')
+      alert('new user :: ' + this.user)
       this.newUserEvent.emit(this.user)
     } else {
       this.updateUserEvent.emit(this.user);
-      alert('update user')
+      alert('update user :: ' + this.user)
     }
     this.show = false;
   }
