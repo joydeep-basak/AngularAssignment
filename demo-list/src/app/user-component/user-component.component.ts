@@ -11,6 +11,7 @@ export class UserComponentComponent {
   users: User[] = [];
 
   constructor () {
+    alert('Constructor called user component')
       this.users = [
         {
           userid:1,
@@ -32,8 +33,19 @@ export class UserComponentComponent {
         },
       ]
   }
+
+  updateUser(user:User) {
+    console.log(user);
+    this.users.push({
+      userid:4,
+      username: "name 4",
+      address:"Address 4",
+      pincode: "pincode 4"
+    },)
+    alert('User updated event called ' + user.userid + "|" + user.username)
+  }
   
   ngOnInit():void {
-
+    alert('ngOnInit called user component')
   }
 }

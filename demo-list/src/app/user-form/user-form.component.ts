@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { User } from '../user-component/user-model';
 
 @Component({
@@ -19,13 +20,19 @@ export class UserFormComponent {
   constructor () {
   }
 
+  ngOnInit():void {
+    this.user = new User();
+  }
+
   save() {
     alert('save | ' + this.newuser)
     if (this.newuser) {
-      alert('new user :: ' + this.user)
+      alert('new user :: ' + this.user.userid + " | " + this.user.username)
       this.newUserEvent.emit(this.user)
+      this.user = new User;
     } else {
       this.updateUserEvent.emit(this.user);
+      this.user = new User;
       alert('update user :: ' + this.user)
     }
     this.show = false;

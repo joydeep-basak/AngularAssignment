@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../user-component/user-model';
 
 @Component({
@@ -12,6 +12,8 @@ export class UserTableComponent {
    user! : User
    show! : boolean
    newuser! : boolean
+
+   @Output() updateEventEmitter = new EventEmitter();
   
   constructor() {
     
@@ -22,9 +24,10 @@ export class UserTableComponent {
   }
 
   addNew() {
+    alert('New User')
     this.show = true;
     this.user = {
-      userid:0,
+      userid:this.users.length + 1,
       username: "",
       address:"",
       pincode: ""
@@ -35,17 +38,18 @@ export class UserTableComponent {
 
   addNewUser(user: User) {
     console.log(user)
-    this.users.push(user)
-    alert(this.users.length)
+    this.updateEventEmitter.emit(user);
+    
   }
 
   updateUser(user: User) {
     alert('Event Emit called update')
-    for(var i = 0; i < this.users.length; i++) {
-        if (this.users[i].userid == user.userid) {
-          this.users[i] = user;
-        }
-    }
+    // for(var i = 0; i < this.users.length; i++) {
+    //     if (this.users[i].userid == user.userid) {
+    //       this.users[i] = user;
+    //     }
+    // }
+    this.updateEventEmitter.emit(user);
    }
   
 
