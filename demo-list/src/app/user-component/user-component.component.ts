@@ -8,44 +8,39 @@ import { User } from './user-model';
 })
 export class UserComponentComponent {
 
-  users: User[] = [];
+  users: User[] = [
+    {
+      userid:1,
+      username: "name 1",
+      address:"Address 1",
+      pincode: "pincode 1"
+    },
+    {
+      userid:2,
+      username: "name 2",
+      address:"Address 2",
+      pincode: "pincode 2"
+    },
+    {
+      userid:3,
+      username: "name 3",
+      address:"Address 3",
+      pincode: "pincode 3"
+    },
+  ];
 
   constructor () {
-    alert('Constructor called user component')
-      this.users = [
-        {
-          userid:1,
-          username: "name 1",
-          address:"Address 1",
-          pincode: "pincode 1"
-        },
-        {
-          userid:2,
-          username: "name 2",
-          address:"Address 2",
-          pincode: "pincode 2"
-        },
-        {
-          userid:3,
-          username: "name 3",
-          address:"Address 3",
-          pincode: "pincode 3"
-        },
-      ]
+    // alert('Constructor called user component')
+      //this.users = 
   }
 
   updateUser(user:User) {
     console.log(user);
-    this.users.push({
-      userid:4,
-      username: "name 4",
-      address:"Address 4",
-      pincode: "pincode 4"
-    },)
+    this.users.push(user);
     alert('User updated event called ' + user.userid + "|" + user.username)
   }
   
   ngOnInit():void {
-    alert('ngOnInit called user component')
+    // alert('ngOnInit called user component')
   }
 }

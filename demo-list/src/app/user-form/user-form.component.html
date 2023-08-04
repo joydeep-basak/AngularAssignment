@@ -1,35 +1,44 @@
-<form style="border-style: outset;border-radius: 25px;padding: 10px;" [hidden]="!show">
+<h1>{{'Show value :: ' + user.userid}}</h1>
+<div *ngIf="user.userid != 0"> 
+<form #userForm="ngForm" style="border-style: outset;border-radius: 25px;padding: 10px;" novalidate onsubmit="return false;">
     <div class="form-group row">
       <label for="userid" class="col-sm-2 col-form-label">User Id</label>
       <div class="col-sm-10">
-        <input type="text" disabled class="form-control-plaintext" id="userid" placeholder="Selected ID" [readOnly]="true" value="{{user.userid}}">
+        <input type="text" disabled class="form-control-plaintext" id="userid" name="userid" placeholder="Selected ID"
+         [readOnly]="true" ngModel required #userid="ngModel" value="{{user.userid}}">
       </div>
     </div>
     <div class="form-group row">
       <label for="username" class="col-sm-2 col-form-label">User Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="username" placeholder="User Name" value="{{user.username}}">
+        <input type="text" class="form-control" id="username" name="username"
+         placeholder="User Name" ngModel required #username="ngModel" value="{{user.username}}">
       </div>
     </div>
     <div class="form-group row">
         <label for="address" class="col-sm-2 col-form-label">Address</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="address" placeholder="Address" value="{{user.address}}">
+          <input type="text" class="form-control" id="address" name="address" placeholder="Address"
+          value="{{user.address}}"
+          ngModel required #address="ngModel">
         </div>
       </div>
       <div class="form-group row">
         <label for="pincode" class="col-sm-2 col-form-label">Pin Code</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="pincode" placeholder="Pin" value="{{user.pincode}}">
+          <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pin"
+          value="{{user.pincode}}"
+           ngModel required #pincode="ngModel">
         </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-6">
-            <button type="submit" class="col-sm-2 btn btn-primary mb-2" (click)="save()">Save</button>
+            <button type="submit" class="col-sm-2 btn btn-primary mb-2" (click)="save(userForm.value)">Save</button>
           </div>
         <div class="col-sm-6">
-            <button type="submit" class="col-sm-2 btn btn-primary mb-2" (click)="hideForm()">Cancel</button>
+            <button type="button" class="col-sm-2 btn btn-primary mb-2" (click)="hideForm()">Cancel</button>
         </div>
       </div>
       
   </form>
+  </div>

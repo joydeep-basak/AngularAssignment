@@ -18,27 +18,44 @@ export class UserFormComponent {
   @Output() updateUserEvent = new EventEmitter();
 
   constructor () {
+    this.user = {
+      userid : 0,
+      username : '',
+      address: '',
+      pincode : '',
+    };
+    if (this.user != undefined) {
+      console.log('User Form constructor :: ',this.user)
+    }
   }
 
   ngOnInit():void {
-    this.user = new User();
+    if (this.user != undefined) {
+      console.log('User Form ngOnInit :: ',this.user)
+    }
   }
 
-  save() {
+  save(user:User) {
     alert('save | ' + this.newuser)
     if (this.newuser) {
-      alert('new user :: ' + this.user.userid + " | " + this.user.username)
-      this.newUserEvent.emit(this.user)
-      this.user = new User;
+      alert('new updated user :: ' + user.userid + " | " + user.username)
+      this.newUserEvent.emit(user)
+      this.user = user;
     } else {
-      this.updateUserEvent.emit(this.user);
-      this.user = new User;
-      alert('update user :: ' + this.user)
+      this.updateUserEvent.emit(user);
+      this.user = user;
+      alert('update user :: ' + user)
     }
     this.show = false;
   }
 
   hideForm() {
     this.show = false;
+    this.user = {
+      userid : 0,
+      username : '',
+      address: '',
+      pincode : '',
+    };
   }
 }

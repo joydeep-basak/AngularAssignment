@@ -10,7 +10,7 @@ export class UserTableComponent {
 
   @Input()  users!: User[];
    user! : User
-   show! : boolean
+  //  show! : boolean
    newuser! : boolean
 
    @Output() updateEventEmitter = new EventEmitter();
@@ -25,7 +25,7 @@ export class UserTableComponent {
 
   addNew() {
     alert('New User')
-    this.show = true;
+    // this.show = true;
     this.user = {
       userid:this.users.length + 1,
       username: "",
@@ -33,7 +33,7 @@ export class UserTableComponent {
       pincode: ""
     }
     this.newuser = true;
-    this.show = true;
+    // this.show = true;
   }
 
   addNewUser(user: User) {
@@ -54,8 +54,10 @@ export class UserTableComponent {
   
 
   select(id:number) {
+    alert(id)
     this.user = this.users[id -1];
-    this.show = true;
+    console.log(this.user)
+    // this.show = true;
     this.newuser = false;
   }
 }
