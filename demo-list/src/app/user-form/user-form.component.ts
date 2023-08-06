@@ -11,51 +11,49 @@ export class UserFormComponent {
 
 
   @Input()  user!: User;
-  @Input()  show! :boolean;
+  // @Input()  show! :boolean;
   @Input() newuser! : boolean;
 
   @Output() newUserEvent = new EventEmitter();
   @Output() updateUserEvent = new EventEmitter();
 
   constructor () {
-    this.user = {
-      userid : 0,
-      username : '',
-      address: '',
-      pincode : '',
-    };
-    if (this.user != undefined) {
-      console.log('User Form constructor :: ',this.user)
-    }
+    console.log(this.user)
   }
 
   ngOnInit():void {
-    if (this.user != undefined) {
-      console.log('User Form ngOnInit :: ',this.user)
-    }
+    console.log(this.user)
+  }
+
+  show (user: User) {
+    console.log('User Selected :: ', user)
+    this.user = user;
   }
 
   save(user:User) {
     alert('save | ' + this.newuser)
     if (this.newuser) {
-      alert('new updated user :: ' + user.userid + " | " + user.username)
+      console.log('New user from component', user)
       this.newUserEvent.emit(user)
       this.user = user;
     } else {
-      this.updateUserEvent.emit(user);
-      this.user = user;
+      
+      console.log('Update user from component', user)
+      this.user.username = user.username;
+      this.user.address = user.address;
+      this.user.pincode = user.pincode;
+      this.updateUserEvent.emit(this.user);
       alert('update user :: ' + user)
     }
-    this.show = false;
+    // this.show = false;
   }
 
   hideForm() {
-    this.show = false;
     this.user = {
-      userid : 0,
-      username : '',
-      address: '',
-      pincode : '',
-    };
+      userid:0,
+      username:'',
+      address:'',
+      pincode:''
+    }
   }
 }

@@ -1,26 +1,25 @@
-<h1>{{'Show value :: ' + user.userid}}</h1>
+<h1 *ngIf="user.userid != 0">{{'Show value :: ' +  user.userid}}</h1>
 <div *ngIf="user.userid != 0"> 
 <form #userForm="ngForm" style="border-style: outset;border-radius: 25px;padding: 10px;" novalidate onsubmit="return false;">
     <div class="form-group row">
       <label for="userid" class="col-sm-2 col-form-label">User Id</label>
       <div class="col-sm-10">
         <input type="text" disabled class="form-control-plaintext" id="userid" name="userid" placeholder="Selected ID"
-         [readOnly]="true" ngModel required #userid="ngModel" value="{{user.userid}}">
+         [disabled]="true" required [(ngModel)]="user.userid">
       </div>
     </div>
     <div class="form-group row">
       <label for="username" class="col-sm-2 col-form-label">User Name</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="username" name="username"
-         placeholder="User Name" ngModel required #username="ngModel" value="{{user.username}}">
+         placeholder="User Name" [(ngModel)]="user.username">
       </div>
     </div>
     <div class="form-group row">
         <label for="address" class="col-sm-2 col-form-label">Address</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="address" name="address" placeholder="Address"
-          value="{{user.address}}"
-          ngModel required #address="ngModel">
+          [(ngModel)]="user.address">
         </div>
       </div>
       <div class="form-group row">
@@ -28,7 +27,7 @@
         <div class="col-sm-10">
           <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pin"
           value="{{user.pincode}}"
-           ngModel required #pincode="ngModel">
+          [(ngModel)]="user.pincode">
         </div>
       </div>
       <div class="form-group row">

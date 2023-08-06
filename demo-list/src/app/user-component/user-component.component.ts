@@ -36,8 +36,18 @@ export class UserComponentComponent {
 
   updateUser(user:User) {
     console.log(user);
-    this.users.push(user);
+    for (let i = 0; i < this.users.length; i++) {
+      if (user.userid == this.users[i].userid) {
+        this.users[i] = user;
+        break;
+      }
+    }
     alert('User updated event called ' + user.userid + "|" + user.username)
+  }
+
+  insertUser(user:User) {
+    user.userid = this.users.length + 1;
+    this.users.push(user);
   }
   
   ngOnInit():void {
