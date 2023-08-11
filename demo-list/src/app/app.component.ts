@@ -19,4 +19,8 @@ export class AppComponent {
       
     // }, 2000);
   }
+
+  activateMenu(obj:string) {
+
+  }
 }

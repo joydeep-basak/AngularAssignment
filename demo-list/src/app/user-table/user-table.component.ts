@@ -63,8 +63,13 @@ export class UserTableComponent {
   
 
   select(id:number) {
-    alert(id)
-    this.user = this.users[id -1];
+    // this.users[id -1];
+    let usr = new User();
+        usr.userid = this.users[id -1].userid;
+        usr.username = this.users[id -1].username;
+        usr.address = this.users[id -1].address;
+        usr.pincode = this.users[id -1].pincode;
+        this.user = usr;
     console.log('User Selected from Table compoenent',this.user)
     // this.show = true;
     this.newuser = false;

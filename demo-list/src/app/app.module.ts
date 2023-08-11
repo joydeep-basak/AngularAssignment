@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { UserComponentComponent } from '../app/user-component/user-component.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponentComponent,
     UserTableComponent,
-    UserFormComponent
+    UserFormComponent,
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
