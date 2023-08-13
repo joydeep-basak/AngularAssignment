@@ -58,6 +58,8 @@ export class UserComponentComponent {
   }
   
   ngOnInit():void {
-    this.users = this.userservice.getAllUsers();
+    this.userservice.getAllUsers()
+    .subscribe((response: { data: User[]; }) => this.users = response.data);
+   
   }
 }

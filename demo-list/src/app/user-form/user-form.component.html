@@ -1,5 +1,5 @@
-<h1 *ngIf="user.userid != 0">{{'Show value :: ' +  user.userid}}</h1>
-<div *ngIf="user.userid != 0"> 
+<h1 *ngIf="user!= undefined && user.userid != 0">{{'Show value :: ' +  user.userid}}</h1>
+<div *ngIf="user!= undefined && user.userid != 0"> 
 <form #userForm="ngForm" style="border-style: outset;border-radius: 25px;padding: 10px;" novalidate onsubmit="return false;">
     <div class="form-group row">
       <label for="userid" class="col-sm-2 col-form-label">User Id</label>
