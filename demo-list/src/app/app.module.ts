@@ -10,6 +10,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login/login.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     UserTableComponent,
     UserFormComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     HttpClientModule,
