@@ -4,27 +4,52 @@
 <!------ Include the above in your HEAD tag ---------->
 <main style="margin-top: 58px;">
     <div class="container pt-4">
-<div class="container login-container">
-            <div class="row">
-                <div class="col-md-6 login-form-1">
-                    <h3>Login for Form 1</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email *" value="" />
+        <div class="col-md-12">
+            <div class="card card-container">
+                <!-- <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" /> -->
+                <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                        <label for="username">Email</label> <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required #username="ngModel" />
+                        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">Username is required!</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label> <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+                            #password="ngModel" />
+                        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+                            <!-- <div *ngIf="password.errors.required">Password is required</div> -->
+                            <!-- <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div> -->
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="button" class="btnSubmit" value="Login" (click)="login()" />
-                        </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd">Forget Password?</a>
-                        </div>
-                    </form>
-                </div>
-                
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">Login</button>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">Login failed: {{ errorMessage }}</div>
+                    </div> -->
+                    <div class="form-group">
+                        <p class="content-divider center mt-3">
+                            <span>or</span>
+                        </p>
+                        <p class="social-login text-center">
+                            Sign in with:
+                            <a href="http://localhost:8080/oauth2/authorization/google" class="ml-2">
+                                <img alt="Login with Google" src="/assets/img/google.png" class="btn-img">
+                            </a>
+                            <a href="/oauth2/authorization/facebook">
+                                <img alt="Login with Facebook" src="/assets/img/facebook.png" class="btn-img">
+                            </a>
+                            <a href="{{ githubURL }}">
+                                <img alt="Login with Github" src="/assets/img/github.png" class="btn-img">
+                            </a>
+                            <a href="{{ linkedinURL }}">
+                                <img alt="Login with Linkedin" src="/assets/img/linkedin.png" class="btn-img-linkedin">
+                            </a>
+                        </p>
+                    </div>
+                </form>
+                <div class="alert alert-success" *ngIf="isLoggedIn">Welcome {{data.name}} <br>Logged in as {{ data.name }}.</div>
             </div>
         </div>
+        
         </div>
         </main>
